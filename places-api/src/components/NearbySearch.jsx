@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Box from "./Box";
 function NearbySearch() {
+  const apiKey = process.env.GP_KEY;
   const [nearbyData, setNearbyData] = useState([]);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
