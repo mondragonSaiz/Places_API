@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Box from "./Box";
+
 function TextSearch() {
+  const apiKey = process.env.REACT_APP_GP_KEY;
+  console.log("KEY", apiKey);
   const [textSearch, setTextSearch] = useState("");
   const [textData, setTextData] = useState("");
 
@@ -10,7 +13,7 @@ function TextSearch() {
   const url = "https://places.googleapis.com/v1/places:searchText";
   const headers = {
     "Content-Type": "application/json",
-    "X-Goog-Api-Key": "AIzaSyBecf5WqUCjT4rwuxXvVAorgS-dlcBLwmA",
+    "X-Goog-Api-Key": apiKey,
     "X-Goog-FieldMask":
       "places.displayName,places.formattedAddress,places.priceLevel,places.id",
   };

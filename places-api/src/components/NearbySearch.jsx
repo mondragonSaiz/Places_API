@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Box from "./Box";
+
 function NearbySearch() {
-  const apiKey = process.env.GP_KEY;
+  const apiKey = process.env.REACT_APP_GP_KEY;
   const [nearbyData, setNearbyData] = useState([]);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -27,7 +28,7 @@ function NearbySearch() {
   const url = "https://places.googleapis.com/v1/places:searchNearby";
   const headers = {
     "Content-Type": "application/json",
-    "X-Goog-Api-Key": "AIzaSyBecf5WqUCjT4rwuxXvVAorgS-dlcBLwmA",
+    "X-Goog-Api-Key": apiKey,
     "X-Goog-FieldMask":
       "places.displayName,places.formattedAddress,places.id,places.priceLevel,places.allowsDogs,places.viewport",
   };
