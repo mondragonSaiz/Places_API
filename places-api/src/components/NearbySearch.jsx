@@ -6,7 +6,7 @@ function NearbySearch() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [selectedPlace, setSelectedPlace] = useState("");
-  const [selectedRadio, setSelectedRadio] = useState("500");
+  const [selectedRadio, setSelectedRadio] = useState("");
 
   const handleLatitudeChange = (event) => {
     setLatitude(event.target.value);
@@ -41,7 +41,7 @@ function NearbySearch() {
             latitude: latitude,
             longitude: longitude,
           },
-          radius: selectedRadio,
+          radius: selectedRadio == "" ? 500 : selectedRadio,
         },
       },
     };
@@ -89,11 +89,11 @@ function NearbySearch() {
         />
         <input
           className="p-1 my-2 w-[150px] rounded-lg"
-          placeholder="500"
+          placeholder="500 - 50000"
           value={selectedRadio}
           onChange={handleRadioChange}
         />
-        <div className="my-3 border-4 w-[90vh] h-[40vh] overflow-auto bg-slate-950 text-white p-3">
+        <div className="my-3 border-4 w-[90vh] h-[60vh] overflow-auto bg-slate-950 text-white p-3">
           {nearbyData.length !== 0 ? (
             <div>
               <div className="grid grid-cols-4 gap-4 dashContainer py-2 text-orange-300">
